@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import PageRouter from './router';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <PageRouter />
   </React.StrictMode>,
   document.getElementById('root')
 );
