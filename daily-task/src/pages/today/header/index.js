@@ -1,12 +1,9 @@
 import React from "react";
-import {
-  MdNotifications,
-  MdOutlineSettings,
-} from "react-icons/md";
+import { MdNotifications, MdOutlineSettings } from "react-icons/md";
 
 const TodayHeader = () => {
   return (
-    <div className="h-40 bg-white flex flex-row justify-between">
+    <div className="h-44 bg-white flex flex-row justify-between border-[1px] border-gray-400">
       {/* header intro */}
       <div className="p-4 px-8">
         <h1 className="text-3xl text-gray-600 font-light">
