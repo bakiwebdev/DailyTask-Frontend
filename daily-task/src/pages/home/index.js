@@ -1,7 +1,7 @@
 import React from 'react';
 
 const HomePage = () => {
-  return <div>Home page screen</div>;
+  return <div className='flex-1 bg-green-300'>Home page screen</div>;
 };
 
 export default HomePage;
