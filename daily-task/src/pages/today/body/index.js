@@ -1,4 +1,5 @@
 import React from "react";
+import TaskDescription from "./taskDescription";
 
 const task = () => {
   return (
@@ -41,7 +42,10 @@ const TodoBody = () => {
         {task()}
         {task()}
       </div>
-      <div className="w-100">task description</div>
+      <div className="w-100 border-l-[1px] border-gray-400">
+        {/* task list description */}
+        <TaskDescription />
+      </div>
     </div>
   );
 };
