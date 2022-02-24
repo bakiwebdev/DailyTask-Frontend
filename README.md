@@ -6,10 +6,11 @@
 - [About Daily Task application](#about-daily-task)
 - [Output](#final-output)
 - [Technology used](#technology-used)
-- [Vision](#vision)
-- [Version](#version)
 - [Running Instruction](#instruction)
 - [Demo](#demo)
+
+<!-- - [Vision](#vision)
+- [Version](#version) -->
 
 ## About Daily Task
 
@@ -29,3 +30,16 @@ Daily Task is a full-stack web application that allows users to manage and organ
 <img src="https://user-images.githubusercontent.com/57604289/155514048-571b6cdb-c096-4883-9100-477f0dc4bebb.png" width="300px" height="200px">
 </p>
 <br>
+
+## Technology Used
+
+- HTML
+- CSS & Tailwind CSS
+- JS & React JS
+
+## Running Instruction
+
+- The first thing first is to clone this repo on your repo
+- Then run ```npm install``` on your terminal to install all the dependency 
+- Finally run the application using ```npm start``` on your terminal, "that's it 😉"
+
