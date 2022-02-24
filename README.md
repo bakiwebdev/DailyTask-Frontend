@@ -6,7 +6,7 @@
 - [About Daily Task application](#about-daily-task)
 - [Output](#final-output)
 - [Technology used](#technology-used)
-- [Running Instruction](#instruction)
+- [Running Instruction](#running-instruction)
 - [Demo](#demo)
 
 <!-- - [Vision](#vision)
@@ -43,3 +43,8 @@ Daily Task is a full-stack web application that allows users to manage and organ
 - Then run ```npm install``` on your terminal to install all the dependency 
 - Finally run the application using ```npm start``` on your terminal, "that's it 😉"
 
+## Demo
+you want to see live demo click [here](https://daily-task-birukendris.netlify.app/)
+
+### Note
+⭐ if you like the project, please leave a star ⭐
