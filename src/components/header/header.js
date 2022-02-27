@@ -1,11 +1,15 @@
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import ThemeContext from "../../provider/theme";
 import CustomButton from "../custom_button";
 import ToggleSwitch from "../toggleswitch";
 
 const PageHeader = () => {
+  const navigate = useNavigate();
+  // button handler
+  const handleButtonClick = () => {
+    navigate("/login");
+  }
   return (
     <nav className="h-16 flex items-center justify-between px-6">
       {/* left */}
@@ -22,7 +26,7 @@ const PageHeader = () => {
       {/* right  */}
       <div className="flex justify-center items-center space-x-3 mr-3">
         <ToggleSwitch />
-        <CustomButton text="login" />
+        <CustomButton text="login" onClick={handleButtonClick} />
       </div>
     </nav>
   );

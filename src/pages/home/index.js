@@ -1,6 +1,8 @@
 import React from "react";
 import CustomButton from "../../components/custom_button";
 import PageWrapper from "../../components/page_wrapper";
+import TaskController from "../../components/task/taskController";
+import TaskContainer from "../../components/TaskContainer";
 
 const HomePage = () => {
   return (
@@ -17,53 +19,21 @@ const HomePage = () => {
       {/* task container */}
       <div className="m-2 border-b-[1px] border-gray-200">
         {/* task item */}
-        <div className="flex justify-between items-center p-2 my-1 border-[1px] border-gray-200 max-h-14 h-14 rounded-xl">
-          {/* task title container */}
-          <div className="p-2 w-2/3 h-full overflow-hidden">
-            <h1>Header Title goes here ...</h1>
-          </div>
-          {/* task action container */}
-          <div className="flex space-x-2">
-            <CustomButton text="complete" />
-            <CustomButton text="Delete" />
-          </div>
-        </div>
-        <div className="flex justify-between items-center p-2 my-1 border-[1px] border-gray-200 max-h-14 h-14 rounded-xl">
-          {/* task title container */}
-          <div className="p-2 w-2/3 h-full overflow-hidden">
-            <h1>Header Title goes here ...</h1>
-          </div>
-          {/* task action container */}
-          <div className="flex space-x-2">
-            <CustomButton text="complete" />
-            <CustomButton text="Delete" />
-          </div>
-        </div>
-        <div className="flex justify-between items-center p-2 my-1 border-[1px] border-gray-200 max-h-14 h-14 rounded-xl">
-          {/* task title container */}
-          <div className="p-2 w-2/3 h-full overflow-hidden">
-            <h1>Header Title goes here ...</h1>
-          </div>
-          {/* task action container */}
-          <div className="flex space-x-2">
-            <CustomButton text="complete" />
-            <CustomButton text="Delete" />
-          </div>
-        </div>
-        <div className="flex justify-between items-center p-2 my-1 border-[1px] border-gray-200 max-h-14 h-14 rounded-xl">
-          {/* task title container */}
-          <div className="p-2 w-2/3 h-full overflow-hidden">
-            <h1>Header Title goes here ...</h1>
-          </div>
-          {/* task action container */}
-          <div className="flex space-x-2">
-            <CustomButton text="complete" />
-            <CustomButton text="Delete" />
-          </div>
-        </div>
+        <TaskContainer>
+        <TaskController />
+        <TaskController />
+        <TaskController />
+        <TaskController />
+        <TaskController />
+        <TaskController />
+        <TaskController />
+        <TaskController />
+        <TaskController />
+        <TaskController />
+        </TaskContainer>
       </div>
       {/* footer */}
-      <div>
+      <div className="flex justify-around items-center">
         <CustomButton text="Add Task" />
         <CustomButton text="Clear all" />
       </div>
