@@ -1,11 +1,7 @@
-import PageRouter from './router/index';
+import AppProvider from "./provider";
 
-function App() { 
-
-  return (
-    <div className="App">
-    </div>
-  );
+function App() {
+  return <AppProvider />;
 }
 
 export default App;
