@@ -6,6 +6,8 @@ import LoginPage from "../pages/Login";
 import RegisterPage from "../pages/Register";
 import AddTaskPage from "../pages/AddTaskPage";
 import NotFoundPage from "../pages/NotFound";
+import Detail from "../pages/Detail";
+// Detail
 const PageRouter = () => {
   return (
     <BrowserRouter>
@@ -15,6 +17,7 @@ const PageRouter = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/add-task" element={<AddTaskPage />} />
+        <Route path="/detail" element={<Detail />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
