@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CustomButton from "../../components/custom_button";
 import PageWrapper from "../../components/page_wrapper";
 import TaskController from "../../components/task/taskController";
@@ -20,21 +21,23 @@ const HomePage = () => {
       <div className="m-2 border-b-[1px] border-gray-200">
         {/* task item */}
         <TaskContainer>
-        <TaskController />
-        <TaskController />
-        <TaskController />
-        <TaskController />
-        <TaskController />
-        <TaskController />
-        <TaskController />
-        <TaskController />
-        <TaskController />
-        <TaskController />
+          <TaskController />
+          <TaskController />
+          <TaskController />
+          <TaskController />
+          <TaskController />
+          <TaskController />
+          <TaskController />
+          <TaskController />
+          <TaskController />
+          <TaskController />
         </TaskContainer>
       </div>
       {/* footer */}
       <div className="flex justify-around items-center">
-        <CustomButton text="Add Task" />
+        <Link to="/add-task">
+          <CustomButton text="Add Task" />
+        </Link>
         <CustomButton text="Clear all" />
       </div>
     </PageWrapper>

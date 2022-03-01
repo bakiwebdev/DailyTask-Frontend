@@ -1,5 +1,6 @@
 import React from "react";
 import PageWrapper from "../../components/page_wrapper";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   return (
@@ -33,9 +34,14 @@ const LoginPage = () => {
               className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
-          <button className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
-            Login
-          </button>
+          <div className="flex justify-between items-center">
+            <button className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
+              Login
+            </button>
+            <Link to="/register">
+              <p className="text-sm hover:underline hover:text-blue-500">Don't have an account ?</p>
+            </Link>
+          </div>
         </div>
       </div>
     </PageWrapper>
