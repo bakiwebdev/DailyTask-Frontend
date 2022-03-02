@@ -55,7 +55,7 @@ const Detail = () => {
               </Text>
             </div>
           </div> ) : (
-            <div className="flex justify-center m-6 bg-gray-100 p-5 rounded">Task not found</div>
+            <div className="flex justify-center m-6 bg-gray-100 p-5 rounded border-blue-300 border-2">Task not found</div>
           )
           }
         </div>

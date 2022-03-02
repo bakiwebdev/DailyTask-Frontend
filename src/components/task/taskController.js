@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import Task from "./task";
-
-const TaskController = ({id, task }) => {
+import { LocalContext } from '../../provider/Local/index'
+const TaskController = ({id, data }) => {
+  const {task, setTaskData } = useContext(LocalContext)
   const Navigate = useNavigate();
 
   const handleDetailClick = () => {
@@ -15,11 +16,17 @@ const TaskController = ({id, task }) => {
     console.log("edit button clicked");
   };
   const handleDeleteButton = () => {
-    console.log("delete button clicked");
+    const newTask = task.filter( (data, index) => {
+      if(index === id){
+        return false
+      }
+      return true
+    })
+    setTaskData(newTask)
   };
   return (
     <Task
-      data={task}
+      data={data}
       detailClick={handleDetailClick}
       completeClick={handleCompleteButton}
       editClick={handleEditButton}

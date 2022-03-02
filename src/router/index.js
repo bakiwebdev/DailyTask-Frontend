@@ -7,6 +7,7 @@ import RegisterPage from "../pages/Register";
 import AddTaskPage from "../pages/AddTaskPage";
 import NotFoundPage from "../pages/NotFound";
 import Detail from "../pages/Detail";
+import EditPage from "../pages/Edit";
 // Detail
 const PageRouter = () => {
   return (
@@ -18,6 +19,7 @@ const PageRouter = () => {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/add-task" element={<AddTaskPage />} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/edit/:id" element={<EditPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

@@ -9,7 +9,7 @@ const Task = ({data, detailClick, completeClick, editClick, deleteClick }) => {
   return (
     <div className="flex justify-between items-center p-2 my-1 border-[1px] border-gray-200 max-h-14 h-14 rounded-xl hover:border-blue-500 transition-colors duration-500 hover:bg-blue-50 ">
       {/* task title container */}
-      <div onClick={detailClick} className="p-2 w-2/3 h-full overflow-hidden ">
+      <div onClick={detailClick} className="p-2 w-2/3 h-full overflow-hidden cursor-pointer">
         <Heading primary={true} size="lg">
           {data.title}
         </Heading>

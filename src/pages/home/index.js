@@ -29,7 +29,7 @@ const HomePage = () => {
         <TaskContainer>
           {task.length > 0 ? (
             task.map((item, index) => {
-              return <TaskController key={index} task={item} id={index} />;
+              return <TaskController key={index} data={item} id={index} />;
             })
           ) : (
             <div className="text-center">

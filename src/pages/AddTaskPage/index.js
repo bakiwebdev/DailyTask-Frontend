@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import CustomButton from "../../components/custom_button";
 import Heading from "../../components/heading";
 import CustomInput from "../../components/input";
@@ -8,6 +9,7 @@ import CustomTextArea from "../../components/text_area";
 import { LocalContext } from "../../provider/Local";
 
 const AddTaskPage = () => {
+  const navigation = useNavigate();
   const { task, setTaskData } = useContext(LocalContext);
   const [newTask, setNewTask] = useState({
     title: "",
@@ -40,6 +42,7 @@ const AddTaskPage = () => {
         description: "",
         date: "",
       });
+      navigation('/')
     }
   };
   return (
