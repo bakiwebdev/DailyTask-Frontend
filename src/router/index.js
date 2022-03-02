@@ -17,7 +17,7 @@ const PageRouter = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/add-task" element={<AddTaskPage />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

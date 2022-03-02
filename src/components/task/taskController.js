@@ -2,15 +2,29 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Task from "./task";
 
-const TaskController = ({ task }) => {
-
+const TaskController = ({id, task }) => {
   const Navigate = useNavigate();
 
-  const handleClick = () => { 
-    Navigate(`/detail`);
-  }
+  const handleDetailClick = () => {
+    Navigate(`/detail/${id}`);
+  };
+  const handleCompleteButton = () => {
+    console.log("complete button clicked");
+  };
+  const handleEditButton = () => {
+    console.log("edit button clicked");
+  };
+  const handleDeleteButton = () => {
+    console.log("delete button clicked");
+  };
   return (
-    <Task onClick={handleClick} />
+    <Task
+      data={task}
+      detailClick={handleDetailClick}
+      completeClick={handleCompleteButton}
+      editClick={handleEditButton}
+      deleteClick={handleDeleteButton}
+    />
   );
 };
 

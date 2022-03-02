@@ -1,11 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useContext} from "react";
+import { Link, useParams } from "react-router-dom";
 import { IoArrowBack, IoCalendar, IoTime } from "react-icons/io5";
 import PageWrapper from "../../components/page_wrapper";
 import Heading from "../../components/heading";
 import Text from "../../components/text";
+import { LocalContext } from "../../provider/Local";
 
 const Detail = () => {
+  const { task, setTaskData } = useContext(LocalContext);
+  const { id } = useParams();
+  const taskItem = task[id];
   return (
     <PageWrapper>
       <div className="flex justify-center items-center">
@@ -19,13 +23,13 @@ const Detail = () => {
               </div>
             </Link>
           </div>
-          {/* Detail container*/}
+          {
+            taskItem ? (
           <div className="w-ful mt-5">
             {/* header container */}
             <div className="">
-              <Heading primary={true} size="3xl">
-                Task header will be displayed here ... Task header will be
-                displayed here ...
+              <Heading primary={true} size="2xl">
+                {taskItem.title}
               </Heading>
               {/* date and time wrapper */}
               <div className="my-2 flex justify-start items-center space-x-4">
@@ -47,18 +51,13 @@ const Detail = () => {
                 description
               </Heading>
               <Text primary={true} size="xl">
-                Daily Task is a full-stack web application that allows users to
-                manage and organize their respective duties and steps. This
-                application helps to stay focused and productive. Daily Task is
-                a full-stack web application that allows users to manage and
-                organize their respective duties and steps. This application
-                helps to stay focused and productive. Daily Task is a full-stack
-                web application that allows users to manage and organize their
-                respective duties and steps. This application helps to stay
-                focused and productive.
+                {taskItem.description}
               </Text>
             </div>
-          </div>
+          </div> ) : (
+            <div className="flex justify-center m-6 bg-gray-100 p-5 rounded">Task not found</div>
+          )
+          }
         </div>
       </div>
     </PageWrapper>

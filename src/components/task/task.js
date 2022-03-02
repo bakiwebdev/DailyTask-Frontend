@@ -5,31 +5,33 @@ import CustomIcon from "../custom_icon";
 import Heading from "../heading";
 import Text from "../text";
 
-const Task = ({ onClick }) => {
+const Task = ({data, detailClick, completeClick, editClick, deleteClick }) => {
   return (
     <div className="flex justify-between items-center p-2 my-1 border-[1px] border-gray-200 max-h-14 h-14 rounded-xl hover:border-blue-500 transition-colors duration-500 hover:bg-blue-50 ">
       {/* task title container */}
-      <div onClick={onClick} className="p-2 w-2/3 h-full overflow-hidden ">
+      <div onClick={detailClick} className="p-2 w-2/3 h-full overflow-hidden ">
         <Heading primary={true} size="lg">
-          Task title goes here ...
+          {data.title}
         </Heading>
       </div>
       {/* task action container */}
       <div className="flex justify-center items-center space-x-2">
         <div>
           <Text secondary={true} size="sm">
-            1 Jan <br /> 2020
+            {data.date}
           </Text>
         </div>
-        <CustomButton text="complete" success />
+        <CustomButton text="complete" success onClick={completeClick}/>
         <CustomIcon
           icon={<IoCreateOutline className="w-8 h-8" />}
           tooltip={"Edit"}
+          onClick={editClick}
         />
         <CustomIcon
           icon={<IoTrashOutline className="w-8 h-8 text-black" />}
           bg="red-500"
           tooltip={"Delete"}
+          onClick={deleteClick}
         />
       </div>
     </div>

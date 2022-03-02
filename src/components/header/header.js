@@ -6,7 +6,6 @@ import ToggleSwitch from "../toggleswitch";
 
 const PageHeader = () => {
   const navigate = useNavigate();
-  // button handler
   const handleButtonClick = () => {
     navigate("/login");
   }
