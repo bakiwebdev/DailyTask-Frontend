@@ -1,59 +1,40 @@
-import React from 'react'
-import PageWrapper from '../../components/page_wrapper'
+import React from "react";
+import CustomButton from "../../components/custom_button";
+import Heading from "../../components/heading";
+import CustomInput from "../../components/input";
+import PageWrapper from "../../components/page_wrapper";
+import Text from "../../components/text";
 
 const RegisterPage = () => {
   return (
     <PageWrapper>
-        <div className="flex justify-center items-center">
-        <div>
-          <h1 className="text-4xl mb-3 font-bold">Register</h1>
+      <div className="flex justify-center items-center">
+        <div className="space-y-2">
+          <Heading primary={true} size="3xl">
+            Register
+          </Heading>
 
           <div className="relative mb-4">
-            <label
-              htmlFor="full-name"
-              className="leading-7 text-sm text-gray-600"
-            >
-              Full name
-            </label>
-            <input
-              type="text"
-              id="full-name"
-              name="full-name"
-              className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
+            <Text secondary={true}>Full Name</Text>
+            <CustomInput type="text" name="full_name" placeholder="full name" />
           </div>
           <div className="relative mb-4">
-            <label
-              htmlFor="Username"
-              className="leading-7 text-sm text-gray-600"
-            >
-              Username
-            </label>
-            <input
-              type="username"
-              id="username"
-              name="username"
-              className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
+            <Text secondary={true}>Username</Text>
+            <CustomInput type="text" name="username" placeholder="username" />
           </div>
           <div className="relative mb-4">
-            <label htmlFor="Password" className="leading-7 text-sm text-gray-600">
-              Password
-            </label>
-            <input
+            <Text secondary={true}>Password</Text>
+            <CustomInput
               type="password"
-              id="password"
               name="password"
-              className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              placeholder="password"
             />
           </div>
-          <button className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
-            Create Account
-          </button>
+          <CustomButton text="Create Account" primary={true} />
         </div>
       </div>
     </PageWrapper>
-  )
-}
+  );
+};
 
-export default RegisterPage
+export default RegisterPage;

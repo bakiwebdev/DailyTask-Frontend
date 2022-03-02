@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CustomButton from "../../components/custom_button";
+import Heading from "../../components/heading";
 import PageWrapper from "../../components/page_wrapper";
 import TaskController from "../../components/task/taskController";
 import TaskContainer from "../../components/TaskContainer";
@@ -9,13 +10,13 @@ const HomePage = () => {
   return (
     <PageWrapper>
       {/* header */}
-      <div className="m-2 border-b-[1px] border-gray-200">
-        <h1 className="font-semibold text-xl font-sans m-2 text-gray-700">
-          Welcome
-        </h1>
-        <h3 className="font-light text-lg font-sans m-2 text-gray-600">
+      <div className="m-2 border-b-[1px] border-gray-200 space-y-2">
+        <Heading primary={true} size="2xl">
+          Welcome to Task Manager
+        </Heading>
+        <Heading secondary={true} size="xl">
           You have 0 task to do
-        </h3>
+        </Heading>
       </div>
       {/* task container */}
       <div className="m-2 border-b-[1px] border-gray-200">

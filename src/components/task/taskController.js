@@ -1,10 +1,17 @@
-import React from 'react'
-import Task from './task'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Task from "./task";
 
-const TaskController = ({task}) => {
+const TaskController = ({ task }) => {
+
+  const Navigate = useNavigate();
+
+  const handleClick = () => { 
+    Navigate(`/detail`);
+  }
   return (
-    <Task />
-  )
-}
+    <Task onClick={handleClick} />
+  );
+};
 
-export default TaskController
+export default TaskController;
