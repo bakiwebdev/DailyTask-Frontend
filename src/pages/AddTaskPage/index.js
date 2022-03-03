@@ -10,11 +10,18 @@ import { LocalContext } from "../../provider/Local";
 
 const AddTaskPage = () => {
   const navigation = useNavigate();
+  const date = new Date();
+  const time = date.toLocaleTimeString();
+  const dateTime = {
+    time: time,
+    date: date.toLocaleDateString(),
+  };
   const { task, setTaskData } = useContext(LocalContext);
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
-    date: "",
+    dateTime: dateTime,
+    isCompleted: false,
   });
 
   const titleValue = (e) => {
@@ -31,8 +38,10 @@ const AddTaskPage = () => {
   };
   const buttonClick = () => {
     if (
-      newTask.title === "" || newTask.title.trim() === "" ||
-      newTask.description === "" || newTask.description.trim() === ""
+      newTask.title === "" ||
+      newTask.title.trim() === "" ||
+      newTask.description === "" ||
+      newTask.description.trim() === ""
     ) {
       alert("please fill all fields");
     } else {
@@ -42,7 +51,7 @@ const AddTaskPage = () => {
         description: "",
         date: "",
       });
-      navigation('/')
+      navigation("/");
     }
   };
   return (

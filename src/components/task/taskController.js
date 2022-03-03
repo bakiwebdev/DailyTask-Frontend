@@ -10,10 +10,16 @@ const TaskController = ({id, data }) => {
     Navigate(`/detail/${id}`);
   };
   const handleCompleteButton = () => {
-    console.log("complete button clicked");
+    const newTask = task.map((item, index) => {
+      if (index == id) {
+        item.isCompleted = !item.isCompleted;
+      }
+      return item;
+    });
+    setTaskData(newTask);
   };
   const handleEditButton = () => {
-    console.log("edit button clicked");
+    Navigate(`/edit/${id}`);
   };
   const handleDeleteButton = () => {
     const newTask = task.filter( (data, index) => {

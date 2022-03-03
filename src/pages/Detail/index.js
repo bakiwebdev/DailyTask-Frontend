@@ -36,12 +36,12 @@ const Detail = () => {
                 {/* date */}
                 <div className="flex justify-center items-center w-fit px-2 space-x-2 text-gray-800 bg-blue-200 rounded-md">
                   <IoCalendar className="w-5 h-5" />
-                  <p>1 Jan 2022</p>
+                  <p>{taskItem.dateTime.date}</p>
                 </div>
                 {/* time */}
                 <div className="flex justify-center items-center w-fit px-2 space-x-2 text-gray-800 bg-blue-200 rounded-md">
                   <IoTime className="w-5 h-5" />
-                  <p>12:30 pm</p>
+                  <p>{taskItem.dateTime.time}</p>
                 </div>
               </div>
             </div>
