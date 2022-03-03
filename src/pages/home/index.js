@@ -12,6 +12,16 @@ const HomePage = () => {
   const buttonClear = () => {
     setTaskData([]);
   };
+  const buttonClearOnlyCompleted = () => {
+    const newTask = task.filter(item => !item.isCompleted);
+    setTaskData(newTask);
+  };
+  const buttonCompleteAll = () => {
+    const newTask = task.map((item) => {
+      return { ...item, isCompleted: true };
+    });
+    setTaskData(newTask);
+  }
   return (
     <PageWrapper>
       {/* header */}
@@ -46,7 +56,9 @@ const HomePage = () => {
         <Link to="/add-task">
           <CustomButton text="Add Task" />
         </Link>
-        <CustomButton text="Clear all" error={true} onClick={buttonClear}/>
+        <CustomButton text="Complete all" success={true} onClick={buttonCompleteAll}/>
+        <CustomButton text="Delete only completed task" error={true} onClick={buttonClearOnlyCompleted}/>
+        <CustomButton text="Delete all" error={true} onClick={buttonClear}/>
       </div>
     </PageWrapper>
   );
