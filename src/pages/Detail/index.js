@@ -43,6 +43,14 @@ const Detail = () => {
                   <IoTime className="w-5 h-5" />
                   <p>{taskItem.dateTime && taskItem.dateTime.time ? taskItem.dateTime.time : "Undefined Time"}</p>
                 </div>
+                <div>
+                  {
+                    taskItem.isCompleted ? (
+                      <div className="flex justify-center items-center w-fit px-2 space-x-2 text-gray-800 bg-green-200 rounded-md">completed</div> ) : (
+                      <div className="flex justify-center items-center w-fit px-2 space-x-2 text-gray-800 bg-gray-200 rounded-md">not completed</div>
+                    )
+                  }
+                </div>
               </div>
             </div>
             {/* Description container */}

@@ -49,6 +49,10 @@ const HomePage = () => {
           alert(err);
         });
     } else {
+      if (task.length <= 0) {
+        alert("No task to clear");
+        return;
+      }
       setTaskData([]);
     }
   };
@@ -71,6 +75,10 @@ const HomePage = () => {
           alert(err);
         });
     } else {
+      if (task.length <= 0) {
+        alert("No task to clear");
+        return;
+      }
       const newTask = task.filter((item) => !item.isCompleted);
       setTaskData(newTask);
     }
@@ -94,6 +102,10 @@ const HomePage = () => {
           alert(err);
         });
     } else {
+      if (task.length <= 0) {
+        alert("No task to complete");
+        return;
+      }
       const newTask = task.map((item) => {
         return { ...item, isCompleted: true };
       });
