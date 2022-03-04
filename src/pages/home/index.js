@@ -12,7 +12,6 @@ import axios from "axios";
 const HomePage = () => {
   const { user, setUserData } = useContext(UserContext);
   const { task, setTaskData } = useContext(LocalContext);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
@@ -33,6 +32,10 @@ const HomePage = () => {
 
   const buttonClear = () => {
     if (user) {
+      if (task.length <= 0) {
+        alert("No task to clear");
+        return;
+      }
       axios
         .delete(`${process.env.REACT_APP_BASE_URL}/task/`, {
           headers: {
@@ -51,6 +54,10 @@ const HomePage = () => {
   };
   const buttonClearOnlyCompleted = () => {
     if (user) {
+      if (task.length <= 0) {
+        alert("No task to clear");
+        return;
+      }
       axios
         .delete(`${process.env.REACT_APP_BASE_URL}/task/?completed=true`, {
           headers: {
@@ -70,6 +77,10 @@ const HomePage = () => {
   };
   const buttonCompleteAll = () => {
     if (user) {
+      if (task.length <= 0) {
+        alert("No task to complete");
+        return;
+      }
       axios
         .put(`${process.env.REACT_APP_BASE_URL}/task/?completed=true`, {
           headers: {
