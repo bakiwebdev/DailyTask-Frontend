@@ -29,19 +29,19 @@ const Detail = () => {
             {/* header container */}
             <div className="">
               <Heading primary={true} size="2xl">
-                {taskItem.title}
+                {taskItem.title ? taskItem.title : "Undefined Title"}
               </Heading>
               {/* date and time wrapper */}
               <div className="my-2 flex justify-start items-center space-x-4">
                 {/* date */}
                 <div className="flex justify-center items-center w-fit px-2 space-x-2 text-gray-800 bg-blue-200 rounded-md">
                   <IoCalendar className="w-5 h-5" />
-                  <p>{taskItem.dateTime.date}</p>
+                  <p>{taskItem.dateTime && taskItem.dateTime.date ? taskItem.dateTime.date : "Undefined Date"}</p>
                 </div>
                 {/* time */}
                 <div className="flex justify-center items-center w-fit px-2 space-x-2 text-gray-800 bg-blue-200 rounded-md">
                   <IoTime className="w-5 h-5" />
-                  <p>{taskItem.dateTime.time}</p>
+                  <p>{taskItem.dateTime && taskItem.dateTime.time ? taskItem.dateTime.time : "Undefined Time"}</p>
                 </div>
               </div>
             </div>

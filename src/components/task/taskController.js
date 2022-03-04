@@ -1,34 +1,86 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Task from "./task";
-import { LocalContext } from '../../provider/Local/index'
-const TaskController = ({id, data }) => {
-  const {task, setTaskData } = useContext(LocalContext)
+import { LocalContext } from "../../provider/Local/index";
+import { UserContext } from "../../provider/User/index";
+import axios from "axios";
+
+const TaskController = ({ id, data }) => {
+  const { user, setUserData } = useContext(UserContext);
+  const { task, setTaskData } = useContext(LocalContext);
   const Navigate = useNavigate();
 
   const handleDetailClick = () => {
     Navigate(`/detail/${id}`);
   };
   const handleCompleteButton = () => {
-    const newTask = task.map((item, index) => {
-      if (index == id) {
-        item.isCompleted = !item.isCompleted;
-      }
-      return item;
-    });
-    setTaskData(newTask);
+    if (user) {
+      axios
+        .put(
+          `${process.env.REACT_APP_BASE_URL}/task/${data._id}`,
+          {
+            isCompleted: true,
+          },
+          {
+            headers: {
+              jwt_token: user.token,
+            },
+          }
+        )
+        .then((res) => {
+          const newTask = task.map((item) => {
+            if (item._id == data._id) {
+              return { ...item, isCompleted: true };
+            } else {
+              return item;
+            }
+          });
+          setTaskData(newTask);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    } else {
+      const newTask = task.map((item, index) => {
+        if (index == id) {
+          item.isCompleted = !item.isCompleted;
+        }
+        return item;
+      });
+      setTaskData(newTask);
+    }
   };
   const handleEditButton = () => {
+    if(user){
+      Navigate(`/edit/${data._id}`);
+    }else {
     Navigate(`/edit/${id}`);
+    }
   };
   const handleDeleteButton = () => {
-    const newTask = task.filter( (data, index) => {
-      if(index === id){
-        return false
-      }
-      return true
-    })
-    setTaskData(newTask)
+    if (user) {
+      axios
+        .delete(`${process.env.REACT_APP_BASE_URL}/task/${data._id}`, {
+          headers: {
+            jwt_token: user.token,
+          },
+        })
+        .then((res) => {
+          const newTask = task.filter((item) => item._id != data._id);
+          setTaskData(newTask);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    } else {
+      const newTask = task.filter((data, index) => {
+        if (index === id) {
+          return false;
+        }
+        return true;
+      });
+      setTaskData(newTask);
+    }
   };
   return (
     <Task

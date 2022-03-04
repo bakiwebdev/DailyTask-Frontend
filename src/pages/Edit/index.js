@@ -5,11 +5,14 @@ import PageWrapper from "../../components/page_wrapper";
 import Heading from "../../components/heading";
 import Text from "../../components/text";
 import { LocalContext } from "../../provider/Local";
+import { UserContext } from "../../provider/User";
 import CustomInput from "../../components/input";
 import CustomTextArea from "../../components/text_area";
 import CustomButton from "../../components/custom_button";
+import axios from "axios";
 
 const EditPage = () => {
+  const { user, setUserData } = useContext(UserContext);
   const { task, setTaskData } = useContext(LocalContext);
   const [isTaskExist, setIsTaskExist] = useState(false);
   const { id } = useParams();
@@ -17,18 +20,29 @@ const EditPage = () => {
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
-    date: "",
   });
 
   useEffect(() => {
-    const taskToEdit = task.filter((data, index) => {
-      if (index == id) {
-        setIsTaskExist(true);
-        return data;
+    if (user) {
+      const taskToEdit = task.filter((data, index) => {
+        if (data._id == id) {
+          setIsTaskExist(true);
+          return data;
+        }
+      });
+      if (taskToEdit.length > 0) {
+        setNewTask(taskToEdit[0]);
       }
-    });
-    if (taskToEdit.length > 0) {
-      setNewTask(taskToEdit[0]);
+    } else {
+      const taskToEdit = task.filter((data, index) => {
+        if (index == id) {
+          setIsTaskExist(true);
+          return data;
+        }
+      });
+      if (taskToEdit.length > 0) {
+        setNewTask(taskToEdit[0]);
+      }
     }
   }, [id, task]);
 
@@ -53,15 +67,37 @@ const EditPage = () => {
     ) {
       alert("please fill all fields");
     } else {
-      const newTaskList = task.map((data, index) => {
-        if (index == id) {
-          return newTask;
-        } else {
-          return data;
-        }
-      });
-      setTaskData(newTaskList);
-      navigation("/");
+      if (user) {
+        axios
+          .put(
+            `${process.env.REACT_APP_BASE_URL}/task/${id}`,
+            {
+              title: newTask.title,
+              description: newTask.description,
+            },
+            {
+              headers: {
+                jwt_token: user.token,
+              },
+            }
+          )
+          .then((res) => {
+            navigation("/");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        const newTaskList = task.map((data, index) => {
+          if (index == id) {
+            return newTask;
+          } else {
+            return data;
+          }
+        });
+        setTaskData(newTaskList);
+        navigation("/");
+      }
     }
   };
 

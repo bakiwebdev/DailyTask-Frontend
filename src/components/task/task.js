@@ -20,14 +20,14 @@ const Task = ({ data, detailClick, completeClick, editClick, deleteClick }) => {
         }`}
       >
         <Heading primary={true} size="lg">
-          {data.title}
+          {data.title ? data.title : "Undefined Title"}
         </Heading>
       </div>
       {/* task action container */}
       <div className="flex justify-center items-center space-x-2">
         <div>
           <Text secondary={true} size="sm">
-            {data.dateTime.date}
+            {data.dateTime && data.dateTime.date ? data.dateTime.date : "Undefined DateTime"}
           </Text>
         </div>
         {data.isCompleted ? (
