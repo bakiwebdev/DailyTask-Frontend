@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import { Link,  } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CustomButton from "../../components/custom_button";
 import Heading from "../../components/heading";
 import PageWrapper from "../../components/page_wrapper";
@@ -88,19 +88,29 @@ const HomePage = () => {
       if (task.length <= 0) {
         alert("No task to complete");
         return;
-      }
-      axios
-        .put(`${process.env.REACT_APP_BASE_URL}/task/?completed=true`, {
+      } else {
+        const completedTask = task.filter((item) => !item.isCompleted);
+        if (completedTask.length <= 0) {
+          alert("No task to complete");
+          return;
+        }
+        axios({
+          method: "put",
+          url: `${process.env.REACT_APP_BASE_URL}/task/?completed=true`,
           headers: {
             jwt_token: user.token,
           },
         })
-        .then((res) => {
-          setTaskData(task.filter((item) => !item.isCompleted));
-        })
-        .catch((err) => {
-          alert(err);
-        });
+          .then((res) => {
+            const newTask = task.map((item) => {
+              return { ...item, isCompleted: true };
+            });
+            setTaskData(newTask);
+          })
+          .catch((err) => {
+            alert(err);
+          });
+      }
     } else {
       if (task.length <= 0) {
         alert("No task to complete");
