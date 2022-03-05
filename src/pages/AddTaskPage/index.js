@@ -8,11 +8,11 @@ import CustomInput from "../../components/input";
 import PageWrapper from "../../components/page_wrapper";
 import Text from "../../components/text";
 import CustomTextArea from "../../components/text_area";
-import { LocalContext } from "../../provider/Local";
+import { TaskContext } from "../../provider/Task";
 import { UserContext } from "../../provider/User";
 
 const AddTaskPage = () => {
-  const { user, setUserData } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const navigation = useNavigate();
   const date = new Date();
   const time = date.toLocaleTimeString();
@@ -20,7 +20,7 @@ const AddTaskPage = () => {
     time: time,
     date: date.toLocaleDateString(),
   };
-  const { task, setTaskData } = useContext(LocalContext);
+  const { task, setTaskData } = useContext(TaskContext);
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",

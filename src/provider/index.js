@@ -1,15 +1,15 @@
 import React from "react";
 import PageRouter from "../router";
-import LocalData from "./Local";
+import TaskProvider from "./Task";
 import ThemeProvider from "./theme";
 import UserProvider from "./User";
 const AppProvider = () => {
   return (
     <UserProvider>
       <ThemeProvider>
-        <LocalData>
+        <TaskProvider>
           <PageRouter />
-        </LocalData>
+        </TaskProvider>
       </ThemeProvider>
     </UserProvider>
   );

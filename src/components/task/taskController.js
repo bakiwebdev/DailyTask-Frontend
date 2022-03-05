@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Task from "./task";
-import { LocalContext } from "../../provider/Local/index";
+import { TaskContext } from "../../provider/Task/index";
 import { UserContext } from "../../provider/User/index";
 import axios from "axios";
 
 const TaskController = ({ id, data }) => {
-  const { user, setUserData } = useContext(UserContext);
-  const { task, setTaskData } = useContext(LocalContext);
+  const { user } = useContext(UserContext);
+  const { task, setTaskData } = useContext(TaskContext);
   const Navigate = useNavigate();
 
   const handleDetailClick = () => {

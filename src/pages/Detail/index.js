@@ -4,10 +4,10 @@ import { IoArrowBack, IoCalendar, IoTime } from "react-icons/io5";
 import PageWrapper from "../../components/page_wrapper";
 import Heading from "../../components/heading";
 import Text from "../../components/text";
-import { LocalContext } from "../../provider/Local";
+import { TaskContext } from "../../provider/Task";
 
 const Detail = () => {
-  const { task, setTaskData } = useContext(LocalContext);
+  const { task } = useContext(TaskContext);
   const { id } = useParams();
   const taskItem = task[id];
   return (

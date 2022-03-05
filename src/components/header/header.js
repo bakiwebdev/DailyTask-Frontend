@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import CustomButton from "../custom_button";
 import Heading from "../heading";
 import ToggleSwitch from "../toggleswitch";
 import { UserContext } from "../../provider/User";
-import { LocalContext } from "../../provider/Local";
+import { TaskContext } from "../../provider/Task";
 
 const PageHeader = () => {
-  const { task, setTaskData } = useContext(LocalContext);
+  const { setTaskData } = useContext(TaskContext);
   const { user, setUserData } = useContext(UserContext);
   const navigate = useNavigate();
   const handleButtonLogin = () => {

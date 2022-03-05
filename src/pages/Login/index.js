@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import PageWrapper from "../../components/page_wrapper";
 import { Link, useNavigate } from "react-router-dom";
 import Heading from "../../components/heading";
@@ -10,7 +10,7 @@ import axios from "axios";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const { user, setUserData } = useContext(UserContext);
+  const { setUserData } = useContext(UserContext);
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",

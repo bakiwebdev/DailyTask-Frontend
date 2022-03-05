@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useContext } from "react";
+import { Link,  } from "react-router-dom";
 import CustomButton from "../../components/custom_button";
 import Heading from "../../components/heading";
 import PageWrapper from "../../components/page_wrapper";
 import TaskController from "../../components/task/taskController";
 import TaskContainer from "../../components/TaskContainer";
-import { LocalContext } from "../../provider/Local";
+import { TaskContext } from "../../provider/Task";
 import { UserContext } from "../../provider/User";
 import axios from "axios";
 
 const HomePage = () => {
-  const { user, setUserData } = useContext(UserContext);
-  const { task, setTaskData } = useContext(LocalContext);
+  const { user } = useContext(UserContext);
+  const { task, setTaskData } = useContext(TaskContext);
 
   useEffect(() => {
     if (user) {

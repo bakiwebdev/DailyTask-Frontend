@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { IoArrowBack, IoCalendar, IoTime } from "react-icons/io5";
+import { IoArrowBack } from "react-icons/io5";
 import PageWrapper from "../../components/page_wrapper";
 import Heading from "../../components/heading";
 import Text from "../../components/text";
-import { LocalContext } from "../../provider/Local";
+import { TaskContext } from "../../provider/Task";
 import { UserContext } from "../../provider/User";
 import CustomInput from "../../components/input";
 import CustomTextArea from "../../components/text_area";
@@ -12,8 +12,8 @@ import CustomButton from "../../components/custom_button";
 import axios from "axios";
 
 const EditPage = () => {
-  const { user, setUserData } = useContext(UserContext);
-  const { task, setTaskData } = useContext(LocalContext);
+  const { user } = useContext(UserContext);
+  const { task, setTaskData } = useContext(TaskContext);
   const [isTaskExist, setIsTaskExist] = useState(false);
   const { id } = useParams();
   const navigation = useNavigate();
