@@ -16,13 +16,13 @@ import { GlobalMessageContext } from "../../provider/Message";
 const AddTaskPage = () => {
   const navigation = useNavigate();
   const { user } = useContext(UserContext);
-  const { message, setMessage } = useContext(GlobalMessageContext);
+  const {setMessage } = useContext(GlobalMessageContext);
   const [fetch, setFetch] = useState({
     method: null,
     path: null,
     body: null,
   });
-  const { loading, response, error } = useFetch(fetch);
+  const { loading, response } = useFetch(fetch);
   const date = new Date();
   const time = date.toLocaleTimeString();
   const dateTime = {

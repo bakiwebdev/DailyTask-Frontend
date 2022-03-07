@@ -11,7 +11,6 @@ import CustomInput from "../../components/input";
 import CustomTextArea from "../../components/text_area";
 import CustomButton from "../../components/custom_button";
 import useFetch from "../../utils/useFetch";
-import axios from "axios";
 import Loading from "../../components/loading";
 
 const EditPage = () => {
@@ -25,7 +24,7 @@ const EditPage = () => {
     path: null,
     body: null,
   });
-  const { loading, response, error } = useFetch(fetch);
+  const { loading, response } = useFetch(fetch);
   const navigation = useNavigate();
   const [newTask, setNewTask] = useState({
     title: "",

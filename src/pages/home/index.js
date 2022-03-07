@@ -20,7 +20,7 @@ const HomePage = () => {
     path: null,
     body: null,
   });
-  const { loading, response, error } = useFetch(fetch);
+  const { loading } = useFetch(fetch);
   useEffect(() => {
     if (user) {
       setFetch({

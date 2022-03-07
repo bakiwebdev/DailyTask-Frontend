@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Task from "./task";
 import { TaskContext } from "../../provider/Task/index";
@@ -13,7 +13,7 @@ const TaskController = ({ id, data }) => {
     path: null,
     body: null,
   });
-  const { loading, response, error } = useFetch(fetch);
+  const { loading } = useFetch(fetch);
   const Navigate = useNavigate();
   const handleDetailClick = () => {
     Navigate(`/detail/${id}`);
