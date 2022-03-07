@@ -156,9 +156,9 @@ const HomePage = () => {
       </div>
       {/* task container */}
       <div className="m-2 border-b-[1px] border-gray-200">
-        {loading && <Loading />}
         {/* task item */}
         <TaskContainer>
+          {loading && <Loading />}
           {user ? (
             task.length > 0 ? (
               task.map((item, index) => {

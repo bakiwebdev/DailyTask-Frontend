@@ -1,9 +1,7 @@
-import axios from "axios";
 import React, { useState, useContext } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import CustomButton from "../../components/custom_button";
-import Error from "../../components/error";
 import Heading from "../../components/heading";
 import CustomInput from "../../components/input";
 import Loading from "../../components/loading";
@@ -76,7 +74,6 @@ const AddTaskPage = () => {
           description: "",
           date: "",
         });
-        navigation("/");
       }
     }
   };
@@ -87,6 +84,7 @@ const AddTaskPage = () => {
     <PageWrapper>
       <div className="flex justify-center items-center">
         {loading && <Loading />}
+        { response && navigation("/")}
         <div className="w-100 h-auto space-y-3">
           {/* back link */}
           <div className="w-fit">
