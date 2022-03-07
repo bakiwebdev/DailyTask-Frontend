@@ -1,45 +1,32 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Task from "./task";
 import { TaskContext } from "../../provider/Task/index";
 import { UserContext } from "../../provider/User/index";
-import axios from "axios";
+import useFetch from "../../utils/useFetch";
 
 const TaskController = ({ id, data }) => {
   const { user } = useContext(UserContext);
   const { task, setTaskData } = useContext(TaskContext);
+  const [fetch, setFetch] = useState({
+    method: null,
+    path: null,
+    body: null,
+  });
+  const { loading, response, error } = useFetch(fetch);
   const Navigate = useNavigate();
-
   const handleDetailClick = () => {
     Navigate(`/detail/${id}`);
   };
   const handleCompleteButton = () => {
     if (user) {
-      axios
-        .put(
-          `${process.env.REACT_APP_BASE_URL}/task/${data._id}`,
-          {
-            isCompleted: true,
-          },
-          {
-            headers: {
-              jwt_token: user.token,
-            },
-          }
-        )
-        .then((res) => {
-          const newTask = task.map((item) => {
-            if (item._id == data._id) {
-              return { ...item, isCompleted: true };
-            } else {
-              return item;
-            }
-          });
-          setTaskData(newTask);
-        })
-        .catch((err) => {
-          alert(err);
-        });
+      setFetch({
+        method: "put",
+        path: `/task/${data._id}`,
+        body: {
+          isCompleted: true,
+        }
+      });
     } else {
       const newTask = task.map((item, index) => {
         if (index == id) {
@@ -51,27 +38,18 @@ const TaskController = ({ id, data }) => {
     }
   };
   const handleEditButton = () => {
-    if(user){
+    if (user) {
       Navigate(`/edit/${data._id}`);
-    }else {
-    Navigate(`/edit/${id}`);
+    } else {
+      Navigate(`/edit/${id}`);
     }
   };
   const handleDeleteButton = () => {
     if (user) {
-      axios
-        .delete(`${process.env.REACT_APP_BASE_URL}/task/${data._id}`, {
-          headers: {
-            jwt_token: user.token,
-          },
-        })
-        .then((res) => {
-          const newTask = task.filter((item) => item._id != data._id);
-          setTaskData(newTask);
-        })
-        .catch((err) => {
-          alert(err);
-        });
+      setFetch({
+        method: "delete",
+        path: `/task/${data._id}`,
+      });
     } else {
       const newTask = task.filter((data, index) => {
         if (index === id) {
@@ -85,6 +63,7 @@ const TaskController = ({ id, data }) => {
   return (
     <Task
       data={data}
+      loading={loading}
       detailClick={handleDetailClick}
       completeClick={handleCompleteButton}
       editClick={handleEditButton}

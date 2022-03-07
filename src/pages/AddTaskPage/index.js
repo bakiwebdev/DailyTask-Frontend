@@ -3,17 +3,26 @@ import React, { useState, useContext } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import CustomButton from "../../components/custom_button";
+import Error from "../../components/error";
 import Heading from "../../components/heading";
 import CustomInput from "../../components/input";
+import Loading from "../../components/loading";
 import PageWrapper from "../../components/page_wrapper";
 import Text from "../../components/text";
 import CustomTextArea from "../../components/text_area";
 import { TaskContext } from "../../provider/Task";
 import { UserContext } from "../../provider/User";
+import useFetch from "../../utils/useFetch";
 
 const AddTaskPage = () => {
-  const { user } = useContext(UserContext);
   const navigation = useNavigate();
+  const { user } = useContext(UserContext);
+  const [fetch, setFetch] = useState({
+    method: null,
+    path: null,
+    body: null,
+  });
+  const { loading, response, error } = useFetch(fetch);
   const date = new Date();
   const time = date.toLocaleTimeString();
   const dateTime = {
@@ -50,33 +59,16 @@ const AddTaskPage = () => {
       alert("please fill all fields");
     } else {
       if (user) {
-        axios
-          .post(
-            `${process.env.REACT_APP_BASE_URL}/task/`,
-            {
-              task: {
-                title: newTask.title,
-                description: newTask.description,
-              },
+        setFetch({
+          method: "post",
+          path: "/task/",
+          body: {
+            task: {
+              title: newTask.title,
+              description: newTask.description,
             },
-            {
-              headers: {
-                jwt_token: user.token,
-              },
-            }
-          )
-          .then((res) => {
-            setNewTask({
-              title: "",
-              description: "",
-              dateTime: "",
-              isCompleted: false,
-            });
-            navigation("/");
-          })
-          .catch((err) => {
-            alert(err);
-          });
+          },
+        });
       } else {
         setTaskData([...task, newTask]);
         setNewTask({
@@ -88,9 +80,13 @@ const AddTaskPage = () => {
       }
     }
   };
+  if (response) {
+    navigation("/");
+  }
   return (
     <PageWrapper>
       <div className="flex justify-center items-center">
+        {loading && <Loading />}
         <div className="w-100 h-auto space-y-3">
           {/* back link */}
           <div className="w-fit">

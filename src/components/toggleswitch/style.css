@@ -1,5 +1,0 @@
-/* Toggle B */
-input:checked ~ .dot {
-  transform: translateX(100%);
-  background-color: #0096F5;
-}

@@ -6,15 +6,19 @@ import Text from "../../components/text";
 import CustomInput from "../../components/input";
 import CustomButton from "../../components/custom_button";
 import { UserContext } from "../../provider/User";
+import { GlobalMessageContext } from "../../provider/Message/index";
 import axios from "axios";
+import Loading from "../../components/loading";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const { setUserData } = useContext(UserContext);
+  const { setMessage } = useContext(GlobalMessageContext);
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
   const handleUsernameChange = (e) => {
     setCredentials({
       ...credentials,
@@ -30,6 +34,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       await axios
         .post(`${process.env.REACT_APP_BASE_URL}/auth/login`, credentials)
         .then((res) => {
@@ -41,15 +46,21 @@ const LoginPage = () => {
           navigate("/");
         })
         .catch((err) => {
-          alert(err.response.data);
+          setMessage({
+            visible: true,
+            header: "Error",
+            message: err.response.data,
+            error: true,
+          });
         });
+      setLoading(false);
     } catch (error) {
-      alert(error.message);
+      setLoading(false);
     }
   };
   return (
     <PageWrapper>
-      <div className="flex justify-center items-center">
+      <div className="relative flex justify-center items-center">
         <div className="space-y-2">
           <Heading primary={true} size="3xl">
             Login
@@ -86,6 +97,7 @@ const LoginPage = () => {
             </Link>
           </div>
         </div>
+        {loading && <Loading />}
       </div>
     </PageWrapper>
   );

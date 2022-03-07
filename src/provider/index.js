@@ -1,16 +1,16 @@
 import React from "react";
 import PageRouter from "../router";
 import TaskProvider from "./Task";
-import ThemeProvider from "./theme";
 import UserProvider from "./User";
+import GlobalMessageProvider from "./Message";
 const AppProvider = () => {
   return (
     <UserProvider>
-      <ThemeProvider>
+      <GlobalMessageProvider>
         <TaskProvider>
           <PageRouter />
         </TaskProvider>
-      </ThemeProvider>
+      </GlobalMessageProvider>
     </UserProvider>
   );
 };

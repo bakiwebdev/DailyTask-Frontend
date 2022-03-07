@@ -3,15 +3,17 @@ import { IoCreateOutline, IoTrashOutline } from "react-icons/io5";
 import CustomButton from "../custom_button";
 import CustomIcon from "../custom_icon";
 import Heading from "../heading";
+import Loading from "../loading";
 import Text from "../text";
 
-const Task = ({ data, detailClick, completeClick, editClick, deleteClick }) => {
+const Task = ({ data, detailClick, completeClick, editClick, deleteClick, loading }) => {
   return (
     <div
-      className={`flex justify-between items-center p-2 my-1 border-[1px] ${
+      className={`relative flex justify-between items-center p-2 my-1 border-[1px] ${
         data.isCompleted && `bg-gray-200`
       } border-gray-200 max-h-14 h-14 rounded-xl hover:border-blue-500 transition-colors duration-500 hover:bg-blue-50 `}
     >
+      {loading && <Loading />}
       {/* task title container */}
       <div
         onClick={detailClick}
