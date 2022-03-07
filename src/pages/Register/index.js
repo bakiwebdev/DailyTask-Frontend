@@ -1,20 +1,24 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomButton from "../../components/custom_button";
 import Heading from "../../components/heading";
 import CustomInput from "../../components/input";
+import Loading from "../../components/loading";
 import PageWrapper from "../../components/page_wrapper";
 import Text from "../../components/text";
+import { GlobalMessageContext } from "../../provider/Message/index";
+
 
 const RegisterPage = () => {
   const navigate = useNavigate();
+  const { setMessage } = useContext(GlobalMessageContext);
   const [account, setAccount] = useState({
     full_name: "",
     username: "",
     password: "",
   });
-
+  const [loading, setLoading] = useState(false);
   const handleFullNameChange = (e) => {
     setAccount({
       ...account,
@@ -41,9 +45,15 @@ const RegisterPage = () => {
       account.username === "" ||
       account.password === ""
     ) {
-      alert("Please fill all the fields");
+      setMessage({
+        visible: true,
+        header: "Error",
+        message: "Please fill all the fields",
+        error: true,
+      })
       return;
     }
+    setLoading(true);
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/auth/register`, {
         fullname: account.full_name,
@@ -51,11 +61,23 @@ const RegisterPage = () => {
         password: account.password,
       })
       .then((res) => {
-        alert("Successfully registered, please login");
+        setMessage({
+          visible: true,
+          header: "Success",
+          message: "Account created successfully, please login",
+          success: true,
+        })
+        setLoading(false);
         navigate("/login");
       })
       .catch((err) => {
-        alert(err.response.data);
+        setLoading(false);
+        setMessage({
+          visible: true,
+          header: "Error",
+          message: err.response.data,
+          error: true,
+        })
       });
   };
 
@@ -103,6 +125,7 @@ const RegisterPage = () => {
             onClick={handleSubmit}
           />
         </div>
+        {loading && <Loading />}
       </div>
     </PageWrapper>
   );

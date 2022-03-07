@@ -1,56 +1,58 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CustomButton from "../../components/custom_button";
 import Heading from "../../components/heading";
 import PageWrapper from "../../components/page_wrapper";
 import TaskController from "../../components/task/taskController";
 import TaskContainer from "../../components/TaskContainer";
-import { LocalContext } from "../../provider/Local";
+import { TaskContext } from "../../provider/Task";
 import { UserContext } from "../../provider/User";
-import axios from "axios";
+import { GlobalMessageContext } from "../../provider/Message";
+import useFetch from "../../utils/useFetch";
+import Loading from "../../components/loading";
 
 const HomePage = () => {
-  const { user, setUserData } = useContext(UserContext);
-  const { task, setTaskData } = useContext(LocalContext);
-
+  const { user } = useContext(UserContext);
+  const { task, setTaskData } = useContext(TaskContext);
+  const { setMessage } = useContext(GlobalMessageContext);
+  const [fetch, setFetch] = useState({
+    method: null,
+    path: null,
+    body: null,
+  });
+  const { loading } = useFetch(fetch);
   useEffect(() => {
     if (user) {
-      axios
-        .get(`${process.env.REACT_APP_BASE_URL}/task/`, {
-          headers: {
-            jwt_token: user.token,
-          },
-        })
-        .then((res) => {
-          setTaskData(res.data);
-        })
-        .catch((err) => {
-          alert(err);
-        });
+      setFetch({
+        method: "get",
+        path: "/task/",
+      });
     }
   }, [user]);
 
   const buttonClear = () => {
     if (user) {
       if (task.length <= 0) {
-        alert("No task to clear");
+        setMessage({
+          visible: true,
+          error: true,
+          header: "Error",
+          message: "No task to delete",
+        });
         return;
       }
-      axios
-        .delete(`${process.env.REACT_APP_BASE_URL}/task/`, {
-          headers: {
-            jwt_token: user.token,
-          },
-        })
-        .then((res) => {
-          setTaskData(res.data);
-        })
-        .catch((err) => {
-          alert(err);
-        });
+      setFetch({
+        method: "delete",
+        path: "/task/",
+      });
     } else {
       if (task.length <= 0) {
-        alert("No task to clear");
+        setMessage({
+          visible: true,
+          error: true,
+          header: "Error",
+          message: "No task to delete",
+        });
         return;
       }
       setTaskData([]);
@@ -59,24 +61,36 @@ const HomePage = () => {
   const buttonClearOnlyCompleted = () => {
     if (user) {
       if (task.length <= 0) {
-        alert("No task to clear");
+        setMessage({
+          visible: true,
+          error: true,
+          header: "Error",
+          message: "No completed task to clear",
+        });
         return;
       }
-      axios
-        .delete(`${process.env.REACT_APP_BASE_URL}/task/?completed=true`, {
-          headers: {
-            jwt_token: user.token,
-          },
-        })
-        .then((res) => {
-          setTaskData(task.filter((item) => !item.isCompleted));
-        })
-        .catch((err) => {
-          alert(err);
+      const completedTask = task.filter((task) => task.isCompleted);
+      if (completedTask.length <= 0) {
+        setMessage({
+          visible: true,
+          error: true,
+          header: "Error",
+          message: "No completed task to clear",
         });
+        return;
+      }
+      setFetch({
+        method: "delete",
+        path: "/task/?completed=true",
+      });
     } else {
       if (task.length <= 0) {
-        alert("No task to clear");
+        setMessage({
+          visible: true,
+          error: true,
+          header: "Error",
+          message: "No task to clear",
+        });
         return;
       }
       const newTask = task.filter((item) => !item.isCompleted);
@@ -86,24 +100,37 @@ const HomePage = () => {
   const buttonCompleteAll = () => {
     if (user) {
       if (task.length <= 0) {
-        alert("No task to complete");
-        return;
-      }
-      axios
-        .put(`${process.env.REACT_APP_BASE_URL}/task/?completed=true`, {
-          headers: {
-            jwt_token: user.token,
-          },
-        })
-        .then((res) => {
-          setTaskData(task.filter((item) => !item.isCompleted));
-        })
-        .catch((err) => {
-          alert(err);
+        setMessage({
+          visible: true,
+          error: true,
+          header: "Error",
+          message: "No task to complete",
         });
+        return;
+      } else {
+        const completedTask = task.filter((item) => !item.isCompleted);
+        if (completedTask.length <= 0) {
+          setMessage({
+            visible: true,
+            error: true,
+            header: "Error",
+            message: "No task to complete",
+          });
+          return;
+        }
+        setFetch({
+          method: "put",
+          path: "/task/?completed=true",
+        });
+      }
     } else {
       if (task.length <= 0) {
-        alert("No task to complete");
+        setMessage({
+          visible: true,
+          error: true,
+          header: "Error",
+          message: "No task to clear",
+        });
         return;
       }
       const newTask = task.map((item) => {
@@ -114,7 +141,6 @@ const HomePage = () => {
   };
   return (
     <PageWrapper>
-      {/* header */}
       <div className="flex justify-between m-2 border-b-[1px] border-gray-200 space-y-2">
         <div>
           <Heading primary={true} size="2xl">
@@ -165,6 +191,7 @@ const HomePage = () => {
       </div>
       {/* footer */}
       <div className="flex justify-around items-center">
+        {loading && <Loading />}
         <Link to="/add-task">
           <CustomButton text="Add Task" />
         </Link>

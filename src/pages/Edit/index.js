@@ -1,21 +1,30 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { IoArrowBack, IoCalendar, IoTime } from "react-icons/io5";
+import { IoArrowBack } from "react-icons/io5";
 import PageWrapper from "../../components/page_wrapper";
 import Heading from "../../components/heading";
 import Text from "../../components/text";
-import { LocalContext } from "../../provider/Local";
+import { TaskContext } from "../../provider/Task";
 import { UserContext } from "../../provider/User";
+import { GlobalMessageContext } from "../../provider/Message";
 import CustomInput from "../../components/input";
 import CustomTextArea from "../../components/text_area";
 import CustomButton from "../../components/custom_button";
-import axios from "axios";
+import useFetch from "../../utils/useFetch";
+import Loading from "../../components/loading";
 
 const EditPage = () => {
-  const { user, setUserData } = useContext(UserContext);
-  const { task, setTaskData } = useContext(LocalContext);
+  const { user } = useContext(UserContext);
+  const { task, setTaskData } = useContext(TaskContext);
+  const { setMessage } = useContext(GlobalMessageContext);
   const [isTaskExist, setIsTaskExist] = useState(false);
   const { id } = useParams();
+  const [fetch, setFetch] = useState({
+    method: null,
+    path: null,
+    body: null,
+  });
+  const { loading, response } = useFetch(fetch);
   const navigation = useNavigate();
   const [newTask, setNewTask] = useState({
     title: "",
@@ -44,7 +53,7 @@ const EditPage = () => {
         setNewTask(taskToEdit[0]);
       }
     }
-  }, [id, task]);
+  }, [id, task, user]);
 
   const titleValue = (e) => {
     setNewTask({
@@ -65,28 +74,22 @@ const EditPage = () => {
       newTask.description === "" ||
       newTask.description.trim() === ""
     ) {
-      alert("please fill all fields");
+      setMessage({
+        visible: true,
+        header: "Error",
+        message: "Please fill all the fields",
+        error: true,
+      });
     } else {
       if (user) {
-        axios
-          .put(
-            `${process.env.REACT_APP_BASE_URL}/task/${id}`,
-            {
-              title: newTask.title,
-              description: newTask.description,
-            },
-            {
-              headers: {
-                jwt_token: user.token,
-              },
-            }
-          )
-          .then((res) => {
-            navigation("/");
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        setFetch({
+          method: "put",
+          path: `/task/${id}`,
+          body: {
+            title: newTask.title,
+            description: newTask.description,
+          },
+        });
       } else {
         const newTaskList = task.map((data, index) => {
           if (index == id) {
@@ -104,6 +107,8 @@ const EditPage = () => {
   return (
     <PageWrapper>
       <div className="flex justify-center items-center">
+        {loading && <Loading />}
+        {response && navigation("/")}
         <div className="w-100 h-auto space-y-3">
           {/* back link */}
           <div className="w-fit">

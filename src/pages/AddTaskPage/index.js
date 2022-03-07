@@ -1,26 +1,35 @@
-import axios from "axios";
 import React, { useState, useContext } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import CustomButton from "../../components/custom_button";
 import Heading from "../../components/heading";
 import CustomInput from "../../components/input";
+import Loading from "../../components/loading";
 import PageWrapper from "../../components/page_wrapper";
 import Text from "../../components/text";
 import CustomTextArea from "../../components/text_area";
-import { LocalContext } from "../../provider/Local";
+import { TaskContext } from "../../provider/Task";
 import { UserContext } from "../../provider/User";
+import useFetch from "../../utils/useFetch";
+import { GlobalMessageContext } from "../../provider/Message";
 
 const AddTaskPage = () => {
-  const { user, setUserData } = useContext(UserContext);
   const navigation = useNavigate();
+  const { user } = useContext(UserContext);
+  const {setMessage } = useContext(GlobalMessageContext);
+  const [fetch, setFetch] = useState({
+    method: null,
+    path: null,
+    body: null,
+  });
+  const { loading, response } = useFetch(fetch);
   const date = new Date();
   const time = date.toLocaleTimeString();
   const dateTime = {
     time: time,
     date: date.toLocaleDateString(),
   };
-  const { task, setTaskData } = useContext(LocalContext);
+  const { task, setTaskData } = useContext(TaskContext);
   const [newTask, setNewTask] = useState({
     title: "",
     description: "",
@@ -47,36 +56,24 @@ const AddTaskPage = () => {
       newTask.description === "" ||
       newTask.description.trim() === ""
     ) {
-      alert("please fill all fields");
+      setMessage({
+        visible: true,
+        header: "Error",
+        message: "Please fill all the fields",
+        error: true,
+      })
     } else {
       if (user) {
-        axios
-          .post(
-            `${process.env.REACT_APP_BASE_URL}/task/`,
-            {
-              task: {
-                title: newTask.title,
-                description: newTask.description,
-              },
+        setFetch({
+          method: "post",
+          path: "/task/",
+          body: {
+            task: {
+              title: newTask.title,
+              description: newTask.description,
             },
-            {
-              headers: {
-                jwt_token: user.token,
-              },
-            }
-          )
-          .then((res) => {
-            setNewTask({
-              title: "",
-              description: "",
-              dateTime: "",
-              isCompleted: false,
-            });
-            navigation("/");
-          })
-          .catch((err) => {
-            alert(err);
-          });
+          },
+        });
       } else {
         setTaskData([...task, newTask]);
         setNewTask({
@@ -88,9 +85,14 @@ const AddTaskPage = () => {
       }
     }
   };
+  if (response) {
+    navigation("/");
+  }
   return (
     <PageWrapper>
       <div className="flex justify-center items-center">
+        {loading && <Loading />}
+        { response && navigation("/")}
         <div className="w-100 h-auto space-y-3">
           {/* back link */}
           <div className="w-fit">

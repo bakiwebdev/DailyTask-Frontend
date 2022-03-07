@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import CustomButton from "../custom_button";
 import Heading from "../heading";
-import ToggleSwitch from "../toggleswitch";
 import { UserContext } from "../../provider/User";
-import { LocalContext } from "../../provider/Local";
+import { TaskContext } from "../../provider/Task";
 
 const PageHeader = () => {
-  const { task, setTaskData } = useContext(LocalContext);
+  const { setTaskData } = useContext(TaskContext);
   const { user, setUserData } = useContext(UserContext);
   const navigate = useNavigate();
   const handleButtonLogin = () => {
@@ -18,7 +17,7 @@ const PageHeader = () => {
     setUserData(null);
     setTaskData([]);
     navigate("/");
-  }
+  };
   return (
     <nav className="h-16 flex items-center justify-between px-6">
       {/* left */}
@@ -32,8 +31,10 @@ const PageHeader = () => {
           <h1 className="font-semibold font-sans">Daily Task</h1>
           {user && (
             <div>
-              <Heading  secondary={true} size="sm">
-                <span className="bg-green-500 text-white mx-2 px-2 py-1 rounded">Connected</span>
+              <Heading secondary={true} size="sm">
+                <span className="bg-green-500 text-white mx-2 px-2 py-1 rounded">
+                  Connected
+                </span>
               </Heading>
             </div>
           )}
@@ -41,7 +42,6 @@ const PageHeader = () => {
       </Link>
       {/* right  */}
       <div className="flex justify-center items-center space-x-3 mr-3">
-        <ToggleSwitch />
         {user ? (
           <CustomButton text="logout" onClick={handleButtonLogout} />
         ) : (
