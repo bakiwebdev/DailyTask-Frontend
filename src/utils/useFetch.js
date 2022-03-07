@@ -48,7 +48,7 @@ const useFetch = ({ method, path, body }) => {
         setError(err);
         setLoading(false);
       });
-  }, [user, method, path, body]);
+  }, [user, method, url, body]);
 
   return { loading, response, error };
 };

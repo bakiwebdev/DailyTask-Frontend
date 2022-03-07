@@ -11,10 +11,12 @@ import CustomTextArea from "../../components/text_area";
 import { TaskContext } from "../../provider/Task";
 import { UserContext } from "../../provider/User";
 import useFetch from "../../utils/useFetch";
+import { GlobalMessageContext } from "../../provider/Message";
 
 const AddTaskPage = () => {
   const navigation = useNavigate();
   const { user } = useContext(UserContext);
+  const { message, setMessage } = useContext(GlobalMessageContext);
   const [fetch, setFetch] = useState({
     method: null,
     path: null,
@@ -54,7 +56,12 @@ const AddTaskPage = () => {
       newTask.description === "" ||
       newTask.description.trim() === ""
     ) {
-      alert("please fill all fields");
+      setMessage({
+        visible: true,
+        header: "Error",
+        message: "Please fill all the fields",
+        error: true,
+      })
     } else {
       if (user) {
         setFetch({
@@ -74,6 +81,7 @@ const AddTaskPage = () => {
           description: "",
           date: "",
         });
+        navigation("/");
       }
     }
   };

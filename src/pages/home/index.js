@@ -37,7 +37,7 @@ const HomePage = () => {
           visible: true,
           error: true,
           header: "Error",
-          message: "No task to clear",
+          message: "No task to delete",
         });
         return;
       }
@@ -51,7 +51,7 @@ const HomePage = () => {
           visible: true,
           error: true,
           header: "Error",
-          message: "No task to clear",
+          message: "No task to delete",
         });
         return;
       }
@@ -65,7 +65,17 @@ const HomePage = () => {
           visible: true,
           error: true,
           header: "Error",
-          message: "No task to clear",
+          message: "No completed task to clear",
+        });
+        return;
+      }
+      const completedTask = task.filter((task) => task.isCompleted);
+      if (completedTask.length <= 0) {
+        setMessage({
+          visible: true,
+          error: true,
+          header: "Error",
+          message: "No completed task to clear",
         });
         return;
       }
@@ -94,7 +104,7 @@ const HomePage = () => {
           visible: true,
           error: true,
           header: "Error",
-          message: "No task to clear",
+          message: "No task to complete",
         });
         return;
       } else {
@@ -104,7 +114,7 @@ const HomePage = () => {
             visible: true,
             error: true,
             header: "Error",
-            message: "No task to clear",
+            message: "No task to complete",
           });
           return;
         }
@@ -158,7 +168,6 @@ const HomePage = () => {
       <div className="m-2 border-b-[1px] border-gray-200">
         {/* task item */}
         <TaskContainer>
-          {loading && <Loading />}
           {user ? (
             task.length > 0 ? (
               task.map((item, index) => {
@@ -182,6 +191,7 @@ const HomePage = () => {
       </div>
       {/* footer */}
       <div className="flex justify-around items-center">
+        {loading && <Loading />}
         <Link to="/add-task">
           <CustomButton text="Add Task" />
         </Link>

@@ -71,6 +71,7 @@ const RegisterPage = () => {
         navigate("/login");
       })
       .catch((err) => {
+        setLoading(false);
         setMessage({
           visible: true,
           header: "Error",

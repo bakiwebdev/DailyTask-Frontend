@@ -20,7 +20,6 @@ const Error = () => {
       ${message.error && `bg-red-100 border-red-500 text-red-700`} 
       ${message.success && `bg-green-100 border-green-500 text-green-700`}
       ${message.info && `bg-blue-100 border-blue-500 text-blue-700`}`}
-        role="alert"
       >
         <p className="font-bold">{message.header}</p>
         <p className="text-sm">{message.message}</p>

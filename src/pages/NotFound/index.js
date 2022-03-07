@@ -1,11 +1,9 @@
 import React from 'react'
-import PageWrapper from '../../components/page_wrapper'
+import PageNotFound from '../../components/page_not_found'
 
 const NotFoundPage = () => {
   return (
-    <PageWrapper>
-        <h1>404</h1>
-    </PageWrapper>
+    <PageNotFound />
   )
 }
 
