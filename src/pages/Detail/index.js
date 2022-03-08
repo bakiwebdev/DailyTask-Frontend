@@ -32,7 +32,7 @@ const Detail = () => {
                 {taskItem.title ? taskItem.title : "Undefined Title"}
               </Heading>
               {/* date and time wrapper */}
-              <div className="my-2 flex justify-start items-center space-x-4">
+              <div className="my-2 flex md:flex-row space-y-2 md:space-y-0  flex-col md:justify-start md:items-center md:space-x-4">
                 {/* date */}
                 <div className="flex justify-center items-center w-fit px-2 space-x-2 text-gray-800 bg-blue-200 rounded-md">
                   <IoCalendar className="w-5 h-5" />

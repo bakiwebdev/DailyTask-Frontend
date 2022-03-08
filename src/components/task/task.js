@@ -11,13 +11,13 @@ const Task = ({ data, detailClick, completeClick, editClick, deleteClick, loadin
     <div
       className={`relative flex flex-col md:flex-row md:justify-between md:items-center p-2 my-1 border-[1px] ${
         data.isCompleted && `bg-gray-200`
-      } border-gray-200 md:max-h-14 max-h-24 h-24 md:h-14 rounded-xl hover:border-blue-500 transition-colors duration-500 hover:bg-blue-50 `}
+      } border-gray-200 md:max-h-14 max-h-28  h-28 md:h-14 rounded-xl hover:border-blue-500 transition-colors duration-500 hover:bg-blue-50 `}
     >
       {loading && <Loading />}
       {/* task title container */}
       <div
         onClick={detailClick}
-        className={`p-2 md:w-2/3 w-full h-14 md:h-full overflow-hidden cursor-pointer ${
+        className={`px-2 py-5 md:p-2 md:w-2/3 w-full h-16 md:h-full overflow-hidden cursor-pointer ${
           data.isCompleted && `line-through`
         }`}
       >
