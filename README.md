@@ -15,6 +15,7 @@
 ## About Daily Task
 
 Daily Task is a full-stack web application that allows users to manage and organize their respective duties and steps. This application helps to stay focused and productive.<br>
+Backend can be found [here](https://github.com/Biruk-hub/DailyTask-Backend)
 
 ### Application Features <br>
 
