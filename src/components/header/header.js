@@ -22,22 +22,24 @@ const PageHeader = () => {
     <nav className="h-16 flex items-center justify-between px-6">
       {/* left */}
       <Link to="/">
-        <div className="font-light text-2xl flex justify-center items-center">
+        <div className={`font-light  ${ user && 'border-[1px] bg-green-100 border-green-500'}  rounded-md md:border-transparent text-2xl flex justify-center items-center px-2`}>
           <img
             src={logo}
             alt="logo"
-            className="h-14 w-14 p-2 object-cover rounded-xl"
+            className="min-h-[56px] min-w-[56px] h-14 w-14 p-2 object-cover rounded-xl"
           />
           <h1 className="font-semibold font-sans">Daily Task</h1>
-          {user && (
-            <div>
-              <Heading secondary={true} size="sm">
-                <span className="bg-green-500 text-white mx-2 px-2 py-1 rounded">
-                  Connected
-                </span>
-              </Heading>
-            </div>
-          )}
+          <div className="hidden md:block">
+            {user && (
+              <div>
+                <Heading secondary={true} size="sm">
+                  <span className="bg-green-500 text-white mx-2 px-2 py-1 rounded">
+                    Connected
+                  </span>
+                </Heading>
+              </div>
+            )}
+          </div>
         </div>
       </Link>
       {/* right  */}

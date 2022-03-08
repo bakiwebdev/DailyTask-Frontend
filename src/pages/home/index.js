@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CustomButton from "../../components/custom_button";
 import Heading from "../../components/heading";
 import PageWrapper from "../../components/page_wrapper";
@@ -12,6 +12,7 @@ import useFetch from "../../utils/useFetch";
 import Loading from "../../components/loading";
 
 const HomePage = () => {
+  const navigate = useNavigate();
   const { user } = useContext(UserContext);
   const { task, setTaskData } = useContext(TaskContext);
   const { setMessage } = useContext(GlobalMessageContext);
@@ -29,6 +30,10 @@ const HomePage = () => {
       });
     }
   }, [user]);
+
+  const buttonAddTask = () => {
+    navigate("/add-task");
+  };
 
   const buttonClear = () => {
     if (user) {
@@ -141,11 +146,18 @@ const HomePage = () => {
   };
   return (
     <PageWrapper>
-      <div className="flex justify-between m-2 border-b-[1px] border-gray-200 space-y-2">
+      <div className="flex flex-col md:flex-row justify-between m-2 border-b-[1px] border-gray-200 space-y-2">
         <div>
           <Heading primary={true} size="2xl">
             Welcome to Task Manager
           </Heading>
+          <div className="block md:hidden">
+            {user && (
+              <Heading primary={true} size="xl">
+                <span className="bg-gray-200 px-3 py-1 rounded-sm">{`${user.name}`}</span>
+              </Heading>
+            )}
+          </div>
           <Heading secondary={true} size="xl">
             {task && task.length > 0
               ? `You have ${task.length} ${task.length <= 1 ? "task" : "tasks"}`
@@ -156,7 +168,7 @@ const HomePage = () => {
           </Heading>
         </div>
         {user && (
-          <div className="flex ">
+          <div className="hidden md:flex ">
             <Heading primary={true} size="xl">
               Good to see you{" "}
               <span className="bg-gray-200 px-3 py-1 rounded-sm">{`${user.name}`}</span>
@@ -190,11 +202,9 @@ const HomePage = () => {
         </TaskContainer>
       </div>
       {/* footer */}
-      <div className="flex justify-around items-center">
+      <div className="flex flex-col mx-2 md:flex-row justify-start space-y-2 md:space-y-0 md:justify-around md:items-center">
         {loading && <Loading />}
-        <Link to="/add-task">
-          <CustomButton text="Add Task" />
-        </Link>
+        <CustomButton text="Add Task" onClick={buttonAddTask} />
         <CustomButton
           text="Complete all"
           success={true}

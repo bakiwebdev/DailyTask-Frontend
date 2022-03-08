@@ -9,15 +9,15 @@ import Text from "../text";
 const Task = ({ data, detailClick, completeClick, editClick, deleteClick, loading }) => {
   return (
     <div
-      className={`relative flex justify-between items-center p-2 my-1 border-[1px] ${
+      className={`relative flex flex-col md:flex-row md:justify-between md:items-center p-2 my-1 border-[1px] ${
         data.isCompleted && `bg-gray-200`
-      } border-gray-200 max-h-14 h-14 rounded-xl hover:border-blue-500 transition-colors duration-500 hover:bg-blue-50 `}
+      } border-gray-200 md:max-h-14 max-h-24 h-24 md:h-14 rounded-xl hover:border-blue-500 transition-colors duration-500 hover:bg-blue-50 `}
     >
       {loading && <Loading />}
       {/* task title container */}
       <div
         onClick={detailClick}
-        className={`p-2 w-2/3 h-full overflow-hidden cursor-pointer ${
+        className={`p-2 md:w-2/3 w-full h-14 md:h-full overflow-hidden cursor-pointer ${
           data.isCompleted && `line-through`
         }`}
       >
@@ -26,8 +26,8 @@ const Task = ({ data, detailClick, completeClick, editClick, deleteClick, loadin
         </Heading>
       </div>
       {/* task action container */}
-      <div className="flex justify-center items-center space-x-2">
-        <div>
+      <div className="flex justify-between items-start md:justify-center md:items-center space-x-2">
+        <div className="hidden md:block">
           <Text secondary={true} size="sm">
             {data.dateTime && data.dateTime.date ? data.dateTime.date : "Undefined DateTime"}
           </Text>
