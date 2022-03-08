@@ -18,16 +18,20 @@ Daily Task is a full-stack web application that allows users to manage and organ
 
 ### Application Features <br>
 
-**Must have**
-- User registration functionality.
-- User login functionality.
-- Task add functionality.
-- Read task functionality
-- Task remove functionality.<br>
+- [x] Create task
+- [x] Read task
+- [x] Delete task
+- [x] Edit Task
+- [x] Make task complete 
+- [x] Login user
+- [x] Register user
+- [x] Store task on database
+- [x] Retrive Task from database
+- [x] Task CRUD
 
 **Nice to have**
-- Change Firstname / Username / Password functionality.
-- Store profile picture functionality.<br>
+- [ ] Change Firstname / Username / Password functionality.
+- [ ] Store profile picture functionality.<br>
 
 
 ## Design
