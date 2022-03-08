@@ -61,11 +61,25 @@ Daily Task is a full-stack web application that allows users to manage and organ
 <img src="https://user-images.githubusercontent.com/57604289/157235902-4f641415-414d-4d7c-8d5f-b04575c3a691.png" width="230px" height="300px">
 <img src="https://user-images.githubusercontent.com/57604289/157236020-beccba28-d30c-4c20-83c6-e6bf64272b01.png" width="230px" height="300px">
 <img src="https://user-images.githubusercontent.com/57604289/157236172-005a8c46-5f30-4267-a55a-61220023738c.png" width="230px" height="300px">
+</p>
 
+#### Desktop View
 
+<p float="left">
+<img src="https://user-images.githubusercontent.com/57604289/157236696-bfab541c-0342-4b7d-ad01-54957bede0b1.png" width="450px" height="250px">
+<img src="https://user-images.githubusercontent.com/57604289/157237360-1415bc69-6acf-46e1-a19b-072a5a45e738.png" width="450px" height="250px">
+<img src="https://user-images.githubusercontent.com/57604289/157237564-e3a7612f-a2ba-4611-ad88-b4c4573a8f40.png" width="450px" height="250px">
+<img src="https://user-images.githubusercontent.com/57604289/157237710-dc275fbb-e7ff-4ec2-a2a3-f5f5b4eff716.png" width="450px" height="250px">
 
 </p>
 <br>
+<p float="left">
+ <img src="https://user-images.githubusercontent.com/57604289/157237910-e23c06a4-ff92-4ca5-b2c5-fd26d48a61fe.png" width="450px" height="250px">
+ <img src="https://user-images.githubusercontent.com/57604289/157238189-fcdb9b29-83b8-4bb6-8bbe-d9985b950902.png" width="450px" height="250px">
+</p>
+
+<br>
+
 ## Technology Used
 
 - HTML
