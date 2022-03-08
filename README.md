@@ -4,7 +4,7 @@
 ### Quick link
 
 - [About Daily Task application](#about-daily-task)
-- [Output](#final-output)
+- [Design](#design)
 - [Technology used](#technology-used)
 - [Running Instruction](#running-instruction)
 - [Demo](#demo)
@@ -30,7 +30,7 @@ Daily Task is a full-stack web application that allows users to manage and organ
 - Store profile picture functionality.<br>
 
 
-## Final Output
+## Design
 
 ### Concept UI Design
 
@@ -45,6 +45,27 @@ Daily Task is a full-stack web application that allows users to manage and organ
 </p>
 <br>
 
+### Final Result
+
+#### Mobile View
+
+<p float="left">
+<img src="https://user-images.githubusercontent.com/57604289/157234662-b13a8360-d26d-4d1c-815d-00cfa983e073.png" width="230px" height="300px">
+<img src="https://user-images.githubusercontent.com/57604289/157234938-a0b58b7d-b3a2-4ca9-b424-bd257ced785d.png" width="230px" height="300px">
+<img src="https://user-images.githubusercontent.com/57604289/157235201-80920ea6-60c0-4713-a948-4fd4a3ff746d.png" width="230px" height="300px">
+<img src="https://user-images.githubusercontent.com/57604289/157235084-44d6ff4f-f647-4211-a82b-b60dc0bab3f5.png" width="230px" height="300px">
+</p>
+<br>
+<p float="left">
+<img src="https://user-images.githubusercontent.com/57604289/157235682-3d5e0ebf-f1db-45b8-9041-a60af86b8c3d.png" width="230px" height="300px">
+<img src="https://user-images.githubusercontent.com/57604289/157235902-4f641415-414d-4d7c-8d5f-b04575c3a691.png" width="230px" height="300px">
+<img src="https://user-images.githubusercontent.com/57604289/157236020-beccba28-d30c-4c20-83c6-e6bf64272b01.png" width="230px" height="300px">
+<img src="https://user-images.githubusercontent.com/57604289/157236172-005a8c46-5f30-4267-a55a-61220023738c.png" width="230px" height="300px">
+
+
+
+</p>
+<br>
 ## Technology Used
 
 - HTML
