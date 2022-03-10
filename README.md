@@ -5,7 +5,7 @@
 
 - [About Daily Task application](#-about-daily-task)
 - [Folder Structure ](#-folder-structure-and-layout)
-- [Design](#design)
+- [Design](#-design)
 - [Technology used](#-technology-used)
 - [Running Instruction](#-running-instruction)
 - [Demo](#-demo)
