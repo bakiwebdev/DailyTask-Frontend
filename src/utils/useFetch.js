@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
-import { UserContext } from "../provider/User";
-import { TaskContext } from "../provider/Task";
+import { UserContext } from "../provider/user";
+import { TaskContext } from "../provider/task";
 import axios from "axios";
 
 const useFetch = ({ method, path, body }) => {

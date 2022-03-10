@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CustomButton from "../../components/custom_button";
 import Heading from "../../components/heading";
 import PageWrapper from "../../components/page_wrapper";
 import TaskController from "../../components/task/taskController";
-import TaskContainer from "../../components/TaskContainer";
-import { TaskContext } from "../../provider/Task";
-import { UserContext } from "../../provider/User";
-import { GlobalMessageContext } from "../../provider/Message";
+import TaskContainer from "../../components/task_container";
+import { TaskContext } from "../../provider/task";
+import { UserContext } from "../../provider/user";
+import { GlobalMessageContext } from "../../provider/message";
 import useFetch from "../../utils/useFetch";
 import Loading from "../../components/loading";
 

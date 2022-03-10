@@ -4,7 +4,7 @@ import { IoArrowBack, IoCalendar, IoTime } from "react-icons/io5";
 import PageWrapper from "../../components/page_wrapper";
 import Heading from "../../components/heading";
 import Text from "../../components/text";
-import { TaskContext } from "../../provider/Task";
+import { TaskContext } from "../../provider/task";
 
 const Detail = () => {
   const { task } = useContext(TaskContext);

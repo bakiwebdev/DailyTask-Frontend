@@ -5,8 +5,8 @@ import Heading from "../../components/heading";
 import Text from "../../components/text";
 import CustomInput from "../../components/input";
 import CustomButton from "../../components/custom_button";
-import { UserContext } from "../../provider/User";
-import { GlobalMessageContext } from "../../provider/Message/index";
+import { UserContext } from "../../provider/user";
+import { GlobalMessageContext } from "../../provider/message/index";
 import axios from "axios";
 import Loading from "../../components/loading";
 

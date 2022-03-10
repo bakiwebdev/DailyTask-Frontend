@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { GlobalMessageContext } from "../../provider/Message/index";
+import { GlobalMessageContext } from "../../provider/message/index";
 
 const Error = () => {
   const { message, setMessage } = useContext(GlobalMessageContext);

@@ -7,7 +7,7 @@ import CustomInput from "../../components/input";
 import Loading from "../../components/loading";
 import PageWrapper from "../../components/page_wrapper";
 import Text from "../../components/text";
-import { GlobalMessageContext } from "../../provider/Message/index";
+import { GlobalMessageContext } from "../../provider/message/index";
 
 
 const RegisterPage = () => {

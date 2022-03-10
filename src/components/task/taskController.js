@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Task from "./task";
-import { TaskContext } from "../../provider/Task/index";
-import { UserContext } from "../../provider/User/index";
+import { TaskContext } from "../../provider/task/index";
+import { UserContext } from "../../provider/user/index";
 import useFetch from "../../utils/useFetch";
 
 const TaskController = ({ id, data }) => {

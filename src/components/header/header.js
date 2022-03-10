@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import CustomButton from "../custom_button";
 import Heading from "../heading";
-import { UserContext } from "../../provider/User";
-import { TaskContext } from "../../provider/Task";
+import { UserContext } from "../../provider/user";
+import { TaskContext } from "../../provider/task";
 
 const PageHeader = () => {
   const { setTaskData } = useContext(TaskContext);

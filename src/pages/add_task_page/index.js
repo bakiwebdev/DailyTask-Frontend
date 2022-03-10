@@ -8,10 +8,10 @@ import Loading from "../../components/loading";
 import PageWrapper from "../../components/page_wrapper";
 import Text from "../../components/text";
 import CustomTextArea from "../../components/text_area";
-import { TaskContext } from "../../provider/Task";
-import { UserContext } from "../../provider/User";
+import { TaskContext } from "../../provider/task";
+import { UserContext } from "../../provider/user";
 import useFetch from "../../utils/useFetch";
-import { GlobalMessageContext } from "../../provider/Message";
+import { GlobalMessageContext } from "../../provider/message";
 
 const AddTaskPage = () => {
   const navigation = useNavigate();
