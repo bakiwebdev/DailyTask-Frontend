@@ -16,7 +16,7 @@
 ## ✨ About Daily Task
 
 Daily Task is a full-stack web application that allows users to manage and organize their respective duties and steps. This application helps to stay focused and productive.<br>
-Backend can be found [here](https://github.com/Biruk-hub/DailyTask-Backend)
+<!-- Backend can be found [here](https://github.com/Biruk-hub/DailyTask-Backend) -->
 
 ### ✨ Application Features <br>
 
@@ -35,6 +35,7 @@ Backend can be found [here](https://github.com/Biruk-hub/DailyTask-Backend)
 - [ ] Change Firstname / Username / Password functionality.
 - [ ] Store profile picture functionality.<br>
 
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks--show-me-demo-please)
 
 ## ✨ Folder Structure and layout
 ```
@@ -118,6 +119,7 @@ Backend can be found [here](https://github.com/Biruk-hub/DailyTask-Backend)
     └── sample ui design.xd
 
 ```
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks--show-me-demo-please)
 
 ## ✨ Design
 
@@ -169,6 +171,8 @@ Backend can be found [here](https://github.com/Biruk-hub/DailyTask-Backend)
 
 <br>
 
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks--show-me-demo-please)
+
 ## ✨ Technology Used
 
 - HTML
@@ -177,12 +181,34 @@ Backend can be found [here](https://github.com/Biruk-hub/DailyTask-Backend)
 
 ## ✨ Running Instruction
 
-- The first thing first is to clone this repo on your repo
-- Then run ```npm install``` on your terminal to install all the dependency 
-- Finally run the application using ```npm start``` on your terminal, "that's it 😉"
+1. Clone the repository 
+
+```
+git clone https://github.com/Biruk-hub/DailyTask-Frontend.git
+```
+
+2. install npm modules and dependencies
+
+```
+npm install
+```
+
+3. Start the application
+
+```
+npm start
+```
+
+that's it 😉
+
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks--show-me-demo-please)
 
 ## ✨ Demo
 you want to see live demo click [here](https://daily-task-birukendris.netlify.app/)
 
-### Note
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks--show-me-demo-please)
+
+### 💝 Supporting me
 ⭐ if you like the project, please leave a star ⭐
+
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks--show-me-demo-please)
