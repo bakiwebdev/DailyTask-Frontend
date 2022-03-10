@@ -1,8 +1,8 @@
 import React from "react";
 import PageRouter from "../router";
-import TaskProvider from "./Task";
-import UserProvider from "./User";
-import GlobalMessageProvider from "./Message";
+import TaskProvider from "./task";
+import UserProvider from "./user";
+import GlobalMessageProvider from "./message";
 const AppProvider = () => {
   return (
     <UserProvider>
