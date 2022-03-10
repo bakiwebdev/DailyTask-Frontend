@@ -4,10 +4,11 @@
 ### ✨ Quick link
 
 - [About Daily Task application](#-about-daily-task)
+- [Folder Structure ](#-folder-structure-and-layout)
 - [Design](#design)
-- [Technology used](#technology-used)
-- [Running Instruction](#running-instruction)
-- [Demo](#demo)
+- [Technology used](#-technology-used)
+- [Running Instruction](#-running-instruction)
+- [Demo](#-demo)
 
 <!-- - [Vision](#vision)
 - [Version](#version) -->
