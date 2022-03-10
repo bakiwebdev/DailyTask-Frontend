@@ -28,7 +28,7 @@ Daily Task is a full-stack web application that allows users to manage and organ
 - [x] Login user
 - [x] Register user
 - [x] Store task on database
-- [x] Retrive Task from database
+- [x] Retrieve Task from database
 - [x] Task CRUD
 
 **Nice to have**
@@ -165,6 +165,8 @@ npm start
 ```
 
 that's it 😉
+
+### ✨ Backend api can be found [here](https://github.com/Biruk-hub/DailyTask-Backend)
 
 [![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks--show-me-demo-please)
 
