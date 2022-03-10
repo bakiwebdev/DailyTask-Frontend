@@ -3,7 +3,7 @@
 
 ### ✨ Quick link
 
-- [About Daily Task application](#about-daily-task)
+- [About Daily Task application](#✨-about-daily-task)
 - [Design](#design)
 - [Technology used](#technology-used)
 - [Running Instruction](#running-instruction)
