@@ -45,71 +45,36 @@ Daily Task is a full-stack web application that allows users to manage and organ
 ├── postcss.config.js
 ├── tailwind.config.js
 ├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── logo192.png
-│   ├── logo512.png
-│   ├── manifest.json
-│   ├── og_logo.png
-│   └── robots.txt
 ├── src
 │   ├── assets
-│   │   └── logo.png
 │   ├── components
 │   │   ├── custom_button
-│   │   │   └── index.js
 │   │   ├── custom_icon
-│   │   │   └── index.js
 │   │   ├── error
-│   │   │   └── index.js
 │   │   ├── header
-│   │   │   └── index.js
 │   │   ├── heading
-│   │   │   └── index.js
 │   │   ├── input
-│   │   │   └── index.js
 │   │   ├── loading
-│   │   │   └── index.js
 │   │   ├── page_not_found
-│   │   │   └── index.js
 │   │   ├── page_wrapper
-│   │   │   └── index.js
 │   │   ├── task
-│   │   │   ├── task.js
-│   │   │   └── taskController.js 
 │   │   ├── task_container
-│   │   │   └── index.js
 │   │   ├── text
-│   │   │   └── index.js
 │   │   └── text_area
-│   │       └── index.js
 │   ├── pages
 │   │   ├── add_task_page
-│   │   │   └── index.js
 │   │   ├── detail
-│   │   │   └── index.js
 │   │   ├── edit
-│   │   │   └── index.js
 │   │   ├── home
-│   │   │   └── index.js
 │   │   ├── login
-│   │   │   └── index.js
 │   │   ├── not_found
-│   │   │   └── index.js
 │   │   └── register
-│   │       └── index.js
 │   ├── provider
 │   │   ├── message
-│   │   │   └── index.js
 │   │   ├── task
-│   │   │   └── index.js
-│   │   ├── user
-│   │   │   └── index.js
-│   │   └── index.js
+│   │   └── user
 │   ├── router
-│   │   └── index.js
 │   ├── utils
-│   │   └── useFetch.js
 │   ├── App.js
 │   ├── App.test.js
 │   ├── index.css
