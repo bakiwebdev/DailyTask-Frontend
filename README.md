@@ -1,23 +1,24 @@
 # <img src="https://user-images.githubusercontent.com/57604289/155508952-574739e0-fb0d-4d9b-b5d7-2b1c8c37ef4b.png" width="50px" height="50px"> Daily Taks , [Show me Demo, please](https://daily-task-birukendris.netlify.app/)
 
 
-### Quick link
+### ✨ Quick link
 
-- [About Daily Task application](#about-daily-task)
-- [Design](#design)
-- [Technology used](#technology-used)
-- [Running Instruction](#running-instruction)
-- [Demo](#demo)
+- [About Daily Task application](#-about-daily-task)
+- [Folder Structure ](#-folder-structure-and-layout)
+- [Design](#-design)
+- [Technology used](#-technology-used)
+- [Running Instruction](#-running-instruction)
+- [Demo](#-demo)
 
 <!-- - [Vision](#vision)
 - [Version](#version) -->
 
-## About Daily Task
+## ✨ About Daily Task
 
 Daily Task is a full-stack web application that allows users to manage and organize their respective duties and steps. This application helps to stay focused and productive.<br>
-Backend can be found [here](https://github.com/Biruk-hub/DailyTask-Backend)
+<!-- Backend can be found [here](https://github.com/Biruk-hub/DailyTask-Backend) -->
 
-### Application Features <br>
+### ✨ Application Features <br>
 
 - [x] Create task
 - [x] Read task
@@ -34,10 +35,95 @@ Backend can be found [here](https://github.com/Biruk-hub/DailyTask-Backend)
 - [ ] Change Firstname / Username / Password functionality.
 - [ ] Store profile picture functionality.<br>
 
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks--show-me-demo-please)
 
-## Design
+## ✨ Folder Structure and layout
+```
+.
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   ├── og_logo.png
+│   └── robots.txt
+├── src
+│   ├── assets
+│   │   └── logo.png
+│   ├── components
+│   │   ├── custom_button
+│   │   │   └── index.js
+│   │   ├── custom_icon
+│   │   │   └── index.js
+│   │   ├── error
+│   │   │   └── index.js
+│   │   ├── header
+│   │   │   └── index.js
+│   │   ├── heading
+│   │   │   └── index.js
+│   │   ├── input
+│   │   │   └── index.js
+│   │   ├── loading
+│   │   │   └── index.js
+│   │   ├── page_not_found
+│   │   │   └── index.js
+│   │   ├── page_wrapper
+│   │   │   └── index.js
+│   │   ├── task
+│   │   │   ├── task.js
+│   │   │   └── taskController.js 
+│   │   ├── task_container
+│   │   │   └── index.js
+│   │   ├── text
+│   │   │   └── index.js
+│   │   └── text_area
+│   │       └── index.js
+│   ├── pages
+│   │   ├── add_task_page
+│   │   │   └── index.js
+│   │   ├── detail
+│   │   │   └── index.js
+│   │   ├── edit
+│   │   │   └── index.js
+│   │   ├── home
+│   │   │   └── index.js
+│   │   ├── login
+│   │   │   └── index.js
+│   │   ├── not_found
+│   │   │   └── index.js
+│   │   └── register
+│   │       └── index.js
+│   ├── provider
+│   │   ├── message
+│   │   │   └── index.js
+│   │   ├── task
+│   │   │   └── index.js
+│   │   ├── user
+│   │   │   └── index.js
+│   │   └── index.js
+│   ├── router
+│   │   └── index.js
+│   ├── utils
+│   │   └── useFetch.js
+│   ├── App.js
+│   ├── App.test.js
+│   ├── index.css
+│   └── index.js
+└── UI Design
+    ├──	daily task logo.png
+    └── sample ui design.xd
 
-### Concept UI Design
+```
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks--show-me-demo-please)
+
+## ✨ Design
+
+### ✨ Concept UI Design
 
 <p float="left">
 <img src="https://user-images.githubusercontent.com/57604289/155513445-e3597626-8732-4ebe-81f2-67da831821fb.png" width="300px" height="200px">
@@ -50,9 +136,9 @@ Backend can be found [here](https://github.com/Biruk-hub/DailyTask-Backend)
 </p>
 <br>
 
-### Final Result
+### ✨ Final Result
 
-#### Mobile View
+#### ✨ Mobile View
 
 <p float="left">
 <img src="https://user-images.githubusercontent.com/57604289/157234662-b13a8360-d26d-4d1c-815d-00cfa983e073.png" width="230px" height="300px">
@@ -68,7 +154,7 @@ Backend can be found [here](https://github.com/Biruk-hub/DailyTask-Backend)
 <img src="https://user-images.githubusercontent.com/57604289/157236172-005a8c46-5f30-4267-a55a-61220023738c.png" width="230px" height="300px">
 </p>
 
-#### Desktop View
+#### ✨ Desktop View
 
 <p float="left">
 <img src="https://user-images.githubusercontent.com/57604289/157236696-bfab541c-0342-4b7d-ad01-54957bede0b1.png" width="450px" height="250px">
@@ -85,20 +171,44 @@ Backend can be found [here](https://github.com/Biruk-hub/DailyTask-Backend)
 
 <br>
 
-## Technology Used
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks--show-me-demo-please)
+
+## ✨ Technology Used
 
 - HTML
 - CSS & Tailwind CSS
 - JS & React JS
 
-## Running Instruction
+## ✨ Running Instruction
 
-- The first thing first is to clone this repo on your repo
-- Then run ```npm install``` on your terminal to install all the dependency 
-- Finally run the application using ```npm start``` on your terminal, "that's it 😉"
+1. Clone the repository 
 
-## Demo
+```
+git clone https://github.com/Biruk-hub/DailyTask-Frontend.git
+```
+
+2. install npm modules and dependencies
+
+```
+npm install
+```
+
+3. Start the application
+
+```
+npm start
+```
+
+that's it 😉
+
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks--show-me-demo-please)
+
+## ✨ Demo
 you want to see live demo click [here](https://daily-task-birukendris.netlify.app/)
 
-### Note
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks--show-me-demo-please)
+
+### 💝 Supporting me
 ⭐ if you like the project, please leave a star ⭐
+
+[![](https://img.shields.io/badge/back%20to%20top-%E2%86%A9-blue)](#-daily-taks--show-me-demo-please)
