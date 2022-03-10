@@ -1,4 +1,4 @@
-# <img src="https://user-images.githubusercontent.com/57604289/155508952-574739e0-fb0d-4d9b-b5d7-2b1c8c37ef4b.png" width="50px" height="50px"> Daily Taks , [Show me live Demo, please](https://daily-task-birukendris.netlify.app/)
+# <img src="https://user-images.githubusercontent.com/57604289/155508952-574739e0-fb0d-4d9b-b5d7-2b1c8c37ef4b.png" width="50px" height="50px"> Daily Taks , [Show me Demo, please](https://daily-task-birukendris.netlify.app/)
 
 
 ### Quick link
